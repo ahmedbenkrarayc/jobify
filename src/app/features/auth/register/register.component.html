@@ -1,0 +1,93 @@
+<app-auth-master title="Create Your Account" subTitle="Join Jobify and advance your career or hire top talent today!">
+  <form class="mt-6 font-[400] text-[14px]" [formGroup]="form" (ngSubmit)="onSubmit()">
+    @if(error$ | async; as error){
+      <span class=" text-red-600 text-[12px] block ">{{ error }}</span>
+    }
+
+    <div class="flex-1 mt-4">
+      <label class="block mb-2 text-sm text-gray-600">First Name</label>
+      <input type="text" placeholder="First Name" formControlName="fname" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md" />
+      @if(form.get('fname')?.touched && form.get('lname')?.invalid){
+      <div class="mt-1">
+        @if(form.get('fname')?.errors?.['required']){
+          <span class=" text-red-600 text-[12px] block ">First name is required !</span>
+        }
+
+        @if(form.get('fname')?.errors?.['minength']){
+          <span class=" text-red-600 text-[12px] block ">First name must be at least 2 characters !</span>
+        }
+
+        @if(form.get('fname')?.errors?.['maxlength']){
+          <span class=" text-red-600 text-[12px] block ">First name shouldn't be more than 50 characters !</span>
+        }
+      </div>
+      }
+    </div>
+
+
+    <div class="flex-1 mt-2">
+      <label class="block mb-2 text-sm text-gray-600">Last Name</label>
+      <input type="text" placeholder="Last Name" formControlName="lname" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md" />
+      @if(form.get('lname')?.touched && form.get('lname')?.invalid){
+        @if(form.get('lname')?.errors?.['required']){
+          <span class=" text-red-600 text-[12px] block ">Last name is required !</span>
+        }
+
+        @if(form.get('lname')?.errors?.['minlength']){
+          <span class=" text-red-600 text-[12px] block ">Last name must be at least 2 characters !</span>
+        }
+
+        @if(form.get('lname')?.errors?.['maxlength']){
+          <span class=" text-red-600 text-[12px] block ">Last name shouldn't be more than 50 characters !</span>
+        }
+      }
+    </div>
+
+    <div class="flex-1 mt-2">
+      <label class="block mb-2 text-sm text-gray-600">Email</label>
+      <input type="email" placeholder="Email" formControlName="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md" />
+      @if(form.get('email')?.touched && form.get('email')?.invalid){
+        @if(form.get('email')?.errors?.['required']){
+          <span class=" text-red-600 text-[12px] block ">Email is required !</span>
+        }
+
+        @if(form.get('email')?.errors?.['email']){
+          <span class=" text-red-600 text-[12px] block ">Please enter a valid email !</span>
+        }
+      }
+    </div>
+
+    <div class="flex-1 mt-2">
+      <label class="block mb-2 text-sm text-gray-600">Password</label>
+      <input type="password" placeholder="Password" formControlName="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md" />
+      @if(form.get('password')?.touched && form.get('password')?.invalid){
+        @if(form.get('password')?.errors?.['required']){
+          <span class=" text-red-600 text-[12px] block ">Password is required !</span>
+        }
+
+        @if(form.get('password')?.errors?.['minlength']){
+          <span class=" text-red-600 text-[12px] block ">Password should contain at least 6 characters !</span>
+        }
+      }
+    </div>
+
+    <div class="flex-1 mt-2">
+      <label class="block mb-2 text-sm text-gray-600">Confirm Password</label>
+      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md" />
+      @if(form.get('confirmPassword')?.touched && form.get('confirmPassword')?.invalid){
+        @if(form.get('confirmPassword')?.errors?.['required']){
+          <span class=" text-red-600 text-[12px] block ">Password confirmation is required !</span>
+        }
+      }
+
+
+      @if(form.get('confirmPassword')?.touched && form.errors?.['passwordMismatch']){
+        <span class=" text-red-600 text-[12px] block ">Passwords do not match !</span>
+      }
+    </div>
+
+    <button [disabled]="form.invalid" class=" disabled:cursor-not-allowed w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide cursor-pointer text-white capitalize transition-colors duration-300 transform bg-black rounded-md focus:outline-none focus:ring focus:ring-[#00000082] focus:ring-opacity-50">
+      {{ loading() ? "Registering ..." : "Register" }}
+    </button>
+  </form>
+</app-auth-master>

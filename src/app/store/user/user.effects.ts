@@ -3,11 +3,13 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {UserService} from '../../core/services/user.service';
 import { UserActions } from './user.actions';
 import {catchError, exhaustMap, map, of, switchMap, tap} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class UserEffects {
   private readonly actions$ = inject(Actions);
   private readonly userService = inject(UserService);
+  private readonly router = inject(Router);
 
   registerUser$ = createEffect(() =>
     this.actions$.pipe(
@@ -65,4 +67,14 @@ export class UserEffects {
       )
     )
   )
+
+  redirectAfterLogin$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(UserActions.registerUserSuccess, UserActions.loginUserSuccess),
+        tap(({ user }) => {
+          void this.router.navigate(['/']);
+        })
+      ),
+    { dispatch: false }
+  );
 }

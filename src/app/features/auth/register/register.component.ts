@@ -38,7 +38,7 @@ export class RegisterComponent {
     this.store.select(selectUser).pipe(
       filter(user => !!user),
       take(1),
-      tap(() => console.log('logged in successfully'))
+      tap(() => this.router.navigate(['/login']))
     ).subscribe();
   }
 

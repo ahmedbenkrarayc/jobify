@@ -33,11 +33,36 @@ export class UserEffects {
 
   saveUserToSession$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(UserActions.registerUserSuccess),
+      ofType(UserActions.registerUserSuccess, UserActions.loginUserSuccess),
       tap(({ user }) => {
         sessionStorage.setItem('user', JSON.stringify(user))
       })
     ),
     { dispatch: false }
   );
+
+  loginUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.loginUser),
+      exhaustMap(({ loginUser }) =>
+        this.userService.loadByEmail(loginUser.email).pipe(
+          map(user => {
+            if(user === null)
+              return UserActions.loginUserFailure({ error: "Email or password is wrong !" });
+
+            if(user.password !== loginUser.password)
+              return UserActions.loginUserFailure({ error: "Email or password is wrong !" });
+
+            //here correct credentials
+            const { password, ...rest } = user;
+            return UserActions.loginUserSuccess({ user: rest });
+          }),
+          catchError(err => {
+            console.error('Login error:', err);
+            return of(UserActions.loginUserFailure({ error: "Something went wrong. Please try again." }))
+          })
+        )
+      )
+    )
+  )
 }

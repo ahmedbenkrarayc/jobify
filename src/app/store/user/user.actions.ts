@@ -1,6 +1,7 @@
 import {createActionGroup, props} from '@ngrx/store';
 import {RegisterUser} from '../../shared/models/registeruser';
 import {SafeUser} from '../../shared/models/safeuser';
+import {LoginUser} from '../../shared/models/loginuser';
 
 export const UserActions = createActionGroup({
   source: 'User',
@@ -10,5 +11,9 @@ export const UserActions = createActionGroup({
     'Register User Failure': props<{ error: string }>(),
 
     'Load User By Email': props<{ email: string }>(),
+
+    'Login User': props<{ loginUser: LoginUser }>(),
+    'Login User Success': props<{ user: SafeUser }>(),
+    'Login User Failure': props<{ error: string }>(),
   }
 })

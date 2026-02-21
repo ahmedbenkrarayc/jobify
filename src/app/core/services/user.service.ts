@@ -24,15 +24,16 @@ export class UserService {
     );
   }
 
-  loadByEmail(email: string): Observable<SafeUser | null> {
-    return this.http.get<SafeUser[]>(
+  loadByEmail(email: string): Observable<User | null> {
+    return this.http.get<User[]>(
       `${this.API_URL}?email=${encodeURIComponent(email)}`
     ).pipe(
       map(res => res.length > 0 ? {
           id: res[0].id,
           fname: res[0].fname,
           lname: res[0].lname,
-          email: res[0].email
+          email: res[0].email,
+          password: res[0].password
         } : null
       )
     );

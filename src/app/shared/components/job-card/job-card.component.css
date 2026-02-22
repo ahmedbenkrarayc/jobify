@@ -1,0 +1,211 @@
+/* ===== Job Card ===== */
+.job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  border-color: #c7d2fe;
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.company-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.card-header-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.job-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.company-name {
+  color: #6366f1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+/* ===== Card Body ===== */
+.card-body {
+  padding: 1rem 1.25rem;
+  flex: 1;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  background: #f1f5f9;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.65rem;
+}
+
+.salary-badge {
+  color: #059669;
+  background: #ecfdf5;
+}
+
+.meta-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+.job-description {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.description-ellipsis {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* ===== Card Actions ===== */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+}
+
+.action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.5rem;
+  border-radius: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* View Button */
+.view-btn {
+  background: #eef2ff;
+  color: #6366f1;
+  border: 1px solid #e0e7ff;
+}
+
+.view-btn:hover {
+  background: #e0e7ff;
+  border-color: #c7d2fe;
+  transform: translateY(-1px);
+}
+
+/* Favorite Button */
+.fav-btn {
+  background: #fff1f2;
+  color: #f43f5e;
+  border: 1px solid #fecdd3;
+}
+
+.fav-btn:hover {
+  background: #fecdd3;
+  border-color: #fda4af;
+  transform: translateY(-1px);
+}
+
+.fav-btn.fav-active {
+  background: #f43f5e;
+  color: #ffffff;
+  border-color: #e11d48;
+}
+
+.fav-btn.fav-active:hover {
+  background: #e11d48;
+  border-color: #be123c;
+}
+
+/* Track Button */
+.track-btn {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.track-btn:hover {
+  background: #a7f3d0;
+  border-color: #6ee7b7;
+  transform: translateY(-1px);
+}
+
+.track-btn.track-active {
+  background: #059669;
+  color: #ffffff;
+  border-color: #047857;
+}
+
+.track-btn.track-active:hover {
+  background: #047857;
+  border-color: #065f46;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .card-actions {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}

@@ -1,0 +1,191 @@
+/* ===== Page Layout ===== */
+.jobs-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8ecf8 50%, #f5f7ff 100%);
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ===== Header ===== */
+.jobs-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.jobs-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 0.75rem;
+  color: white;
+}
+
+.icon-lg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.jobs-subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* ===== Search Bar ===== */
+/* (moved to shared/components/search-bar) */
+
+/* ===== Loading State ===== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.loader {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.loader-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #6366f1;
+  animation: bounce 1.4s ease-in-out infinite;
+}
+
+.loader-dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.loader-dot:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  color: #64748b;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+/* ===== Error State ===== */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.error-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 28rem;
+}
+
+/* ===== Empty State ===== */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.empty-icon {
+  width: 4rem;
+  height: 4rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.empty-title {
+  color: #334155;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.empty-text {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* ===== Results Count ===== */
+.results-count {
+  max-width: 80rem;
+  margin: 0 auto 1rem;
+  padding: 0 0.5rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ===== Jobs Grid ===== */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* ===== Pagination ===== */
+/* (moved to shared/components/pagination) */
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .jobs-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .jobs-title {
+    font-size: 1.75rem;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .jobs-title {
+    font-size: 1.5rem;
+  }
+
+  .jobs-subtitle {
+    font-size: 0.9rem;
+  }
+}

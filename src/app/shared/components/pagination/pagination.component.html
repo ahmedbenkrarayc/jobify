@@ -1,0 +1,40 @@
+@if (totalPages > 1) {
+  <div class="pagination-container">
+    <div class="pagination">
+      <button
+        class="page-btn"
+        [disabled]="currentPage === 1"
+        (click)="onPageChange(currentPage - 1)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="page-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+
+      @for (page of pageNumbers; track page) {
+        @if (isVisible(page)) {
+          <button
+            class="page-btn"
+            [class.page-active]="page === currentPage"
+            (click)="onPageChange(page)"
+          >
+            {{ page }}
+          </button>
+        }
+        @if (showEllipsisBefore(page) || showEllipsisAfter(page)) {
+          <span class="page-ellipsis">...</span>
+        }
+      }
+
+      <button
+        class="page-btn"
+        [disabled]="currentPage === totalPages"
+        (click)="onPageChange(currentPage + 1)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="page-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+}

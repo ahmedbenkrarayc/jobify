@@ -35,7 +35,7 @@ export class UserEffects {
 
   saveUserToSession$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(UserActions.registerUserSuccess, UserActions.loginUserSuccess),
+      ofType(UserActions.registerUserSuccess, UserActions.loginUserSuccess, UserActions.updateUserSuccess),
       tap(({ user }) => {
         sessionStorage.setItem('user', JSON.stringify(user))
       })
@@ -75,6 +75,47 @@ export class UserEffects {
           void this.router.navigate(['/']);
         })
       ),
+    { dispatch: false }
+  );
+
+  updateUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.updateUser),
+      exhaustMap(({ id, changes }) =>
+        this.userService.updateUser(id, changes).pipe(
+          map(user => UserActions.updateUserSuccess({ user })),
+          catchError(err => {
+            console.error('Update error:', err);
+            return of(UserActions.updateUserFailure({ error: "Failed to update profile. Please try again." }))
+          })
+        )
+      )
+    )
+  );
+
+  deleteUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.deleteUser),
+      exhaustMap(({ id }) =>
+        this.userService.deleteUser(id).pipe(
+          map(() => UserActions.deleteUserSuccess()),
+          catchError(err => {
+            console.error('Delete error:', err);
+            return of(UserActions.deleteUserFailure({ error: "Failed to delete account. Please try again." }))
+          })
+        )
+      )
+    )
+  );
+
+  clearSessionOnLogout$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.logoutUser, UserActions.deleteUserSuccess),
+      tap(() => {
+        sessionStorage.removeItem('user');
+        void this.router.navigate(['/login']);
+      })
+    ),
     { dispatch: false }
   );
 }

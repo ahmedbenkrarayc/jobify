@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {selectUser, selectUserError, selectUserLoading, UserActions} from '../../../store';
 import {filter, take, tap} from 'rxjs';
+import {NavbarComponent} from '../../../shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ import {filter, take, tap} from 'rxjs';
         AsyncPipe,
         AuthMasterComponent,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NavbarComponent
     ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'

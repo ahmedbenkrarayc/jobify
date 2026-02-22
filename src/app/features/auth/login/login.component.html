@@ -1,3 +1,4 @@
+<app-navbar />
 <app-auth-master title="Create Your Account" subTitle="Join Jobify and advance your career or hire top talent today!">
   <form class="mt-6 font-[400] text-[14px]" [formGroup]="form" (ngSubmit)="onSubmit()">
     @if(error$ | async; as error){
@@ -32,7 +33,7 @@
       }
     </div>
 
-    <button [disabled]="form.invalid" class=" disabled:cursor-not-allowed w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide cursor-pointer text-white capitalize transition-colors duration-300 transform bg-black rounded-md focus:outline-none focus:ring focus:ring-[#00000082] focus:ring-opacity-50">
+    <button [disabled]="form.invalid" class=" disabled:cursor-not-allowed w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide cursor-pointer text-white capitalize transition-colors duration-300 transform bg-[#6b64f2] rounded-md focus:outline-none focus:ring focus:ring-[#6b64f282] focus:ring-opacity-50">
       {{ loading() ? "Login ..." : "Login" }}
     </button>
   </form>

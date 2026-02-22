@@ -15,13 +15,15 @@ import {Router} from '@angular/router';
 import {RegisterUser} from '../../../shared/models/registeruser';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {AsyncPipe} from '@angular/common';
+import {NavbarComponent} from '../../../shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-register',
   imports: [
     ReactiveFormsModule,
     AuthMasterComponent,
-    AsyncPipe
+    AsyncPipe,
+    NavbarComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'

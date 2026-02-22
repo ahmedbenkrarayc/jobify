@@ -5,6 +5,7 @@ import {RegisterUser} from '../../shared/models/registeruser';
 import {map, Observable} from 'rxjs';
 import {SafeUser} from '../../shared/models/safeuser';
 import {User} from '../../shared/models/user';
+import {UpdateUser} from '../../shared/models/updateuser';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,20 @@ export class UserService {
         } : null
       )
     );
+  }
+
+  updateUser(id: number, changes: UpdateUser): Observable<SafeUser> {
+    return this.http.patch<User>(`${this.API_URL}/${id}`, changes).pipe(
+      map(res => ({
+        id: res.id,
+        fname: res.fname,
+        lname: res.lname,
+        email: res.email
+      }))
+    );
+  }
+
+  deleteUser(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 }

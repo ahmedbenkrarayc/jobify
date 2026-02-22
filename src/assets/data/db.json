@@ -1,13 +1,77 @@
 {
   "users": [
     {
-      "id": "3153",
+      "id": "f581",
       "fname": "ahmed",
       "lname": "benkrara",
       "email": "ahmed@gmail.com",
       "password": "ahmed@gmail.com"
+    },
+    {
+      "id": "cb4f",
+      "fname": "ayoub",
+      "lname": "ayoub",
+      "email": "ayoub@gmail.com",
+      "password": "ayoub@gmail.com"
     }
   ],
   "favorite": [],
-  "applicationTrack": []
+  "favorites": [
+    {
+      "id": "5d3d",
+      "userId": "f581",
+      "offerId": "business-developer-schwerpunkt-neukunden-ellwangen-194339",
+      "title": "Business Developer – Schwerpunkt Neukunden (m/w/d)",
+      "company": "EurA AG",
+      "location": "Ellwangen",
+      "link": "https://www.arbeitnow.com/jobs/companies/eura-ag/business-developer-schwerpunkt-neukunden-ellwangen-194339"
+    },
+    {
+      "id": "e458",
+      "userId": "f581",
+      "offerId": "consultant-it-management-i-vollzeit-fulda-164223",
+      "title": "Consultant IT-Management I Vollzeit",
+      "company": "OREXES GmbH",
+      "location": "Fulda",
+      "link": "https://www.arbeitnow.com/jobs/companies/orexes-gmbh/consultant-it-management-i-vollzeit-fulda-164223"
+    },
+    {
+      "id": "7a22",
+      "userId": "cb4f",
+      "offerId": "business-developer-schwerpunkt-neukunden-ellwangen-194339",
+      "title": "Business Developer – Schwerpunkt Neukunden (m/w/d)",
+      "company": "EurA AG",
+      "location": "Ellwangen",
+      "link": "https://www.arbeitnow.com/jobs/companies/eura-ag/business-developer-schwerpunkt-neukunden-ellwangen-194339"
+    }
+  ],
+  "applicationTrack": [],
+  "trackApplications": [
+    {
+      "id": "8033",
+      "userId": "f581",
+      "offerId": "business-developer-schwerpunkt-neukunden-ellwangen-194339",
+      "apiSource": "arbeitnow",
+      "title": "Business Developer – Schwerpunkt Neukunden (m/w/d)",
+      "company": "EurA AG",
+      "location": "Ellwangen",
+      "url": "https://www.arbeitnow.com/jobs/companies/eura-ag/business-developer-schwerpunkt-neukunden-ellwangen-194339",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-22T16:46:43.446Z"
+    },
+    {
+      "id": "ee15",
+      "userId": "f581",
+      "offerId": "junior-iot-embedded-linux-developer-iot-startup-dusseldorf-373358",
+      "apiSource": "arbeitnow",
+      "title": "Junior IOT & Embedded Linux Developer (m/w/d) - IoT Startup",
+      "company": "Livello GmbH",
+      "location": "Düsseldorf",
+      "url": "https://www.arbeitnow.com/jobs/companies/livello-gmbh/junior-iot-embedded-linux-developer-iot-startup-dusseldorf-373358",
+      "status": "rejected",
+      "notes": "fffff",
+      "dateAdded": "2026-02-22T16:48:18.141Z"
+    }
+  ]
 }

@@ -28,7 +28,7 @@ An Angular job board application that lets users search for jobs, save favorites
 ### 1. Clone the repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/ahmedbenkrarayc/jobify.git
 cd jobify
 ```
 
